@@ -17,6 +17,13 @@ def clear1(number, equation):
     expression = expression[0 : -1]
     equation.set(expression)
 
+def root(equation):
+    global expression
+    root = int(expression) * int(expression)
+    expression = str(root)
+    equation.set(expression)
+
+
 def evaluate(equation):
   global expression
 # trying to evaluate the expression
@@ -116,8 +123,8 @@ class Calcu:
                           command=lambda: input_number("/", equation),font="Verdana 19 bold" )
         buttondi.place(x=215, y=210)
 
-        buttonro = Button(screen, text='√', width=3, height=1,
-                          command=lambda: input_number("√", equation),font="Verdana 19 bold" )
+        buttonro = Button(screen, text='x²', width=3, height=1,
+                          command=lambda: ("√", root(equation)),font="Verdana 19 bold" )
         buttonro.place(x=115, y=210)
 
         buttonmod = Button(screen, text='%', width=3, height=1,
