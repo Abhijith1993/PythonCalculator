@@ -4,6 +4,8 @@ import math
 
 
 class Calcu:
+    def number_display(self):
+        pass
     def gui_structure(self):
         # ------------Window Gui----------------------
         screen = Tk()
@@ -52,10 +54,10 @@ class Calcu:
         buttondot = Button(screen, text='.', width=8, height=3, )
         buttondot.place(x=215, y=530)
 
-        buttoneq = Button(screen, text='=', width=8, height=8, )
-        buttoneq.place(x=315, y=455)
+        buttoneq = Button(screen, text='=', width=8, height=3, )
+        buttoneq.place(x=315, y=450)
 
-        buttonpl = Button(screen, text='+', width=8, height=9, )
+        buttonpl = Button(screen, text='+', width=8, height=8, )
         buttonpl.place(x=315, y=290)
 
         buttonml = Button(screen, text='X', width=8, height=3, )
@@ -69,6 +71,9 @@ class Calcu:
 
         buttonmod = Button(screen, text='%', width=8, height=3, )
         buttonmod.place(x=15, y=210)
+
+        buttondel = Button(screen, text='DEL', width=8, height=3, )
+        buttondel.place(x=315, y=530)
 
         screen.mainloop()
 
