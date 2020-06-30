@@ -17,6 +17,21 @@ def clear1(number, equation):
     expression = expression[0 : -1]
     equation.set(expression)
 
+def evaluate(equation):
+  global expression
+# trying to evaluate the expression
+  try:
+    result = str(eval(expression))
+# showing the result in the input field
+    equation.set(result)
+# setting expression to empty string
+    expression = ""
+  except ZeroDivisionError :
+      equation.set("Can't Divide By Zero")
+# some error occured
+# showing it to the user equation.set("Enter a valid expression")
+
+# creating the GUI
 
 class Calcu:
 
@@ -81,15 +96,20 @@ class Calcu:
                            command=lambda: input_number(".", equation),font="Verdana 19 bold" )
         buttondot.place(x=215, y=530)
 
-        buttoneq = Button(screen, text='=', width=3, height=1 ,font="Verdana 19 bold" )
-        buttoneq.place(x=315, y=450)
+        buttoneq = Button(screen, text='=', width=3, height=1,
+                          command=lambda : evaluate(equation),font="Verdana 19 bold" )
+        buttoneq.place(x=315, y=530)
 
-        buttonpl = Button(screen, text='+', width=3, height=3,
+        buttonpl = Button(screen, text='+', width=3, height=1,
                           command=lambda: input_number("+", equation),font="Verdana 19 bold" )
         buttonpl.place(x=315, y=290)
 
+        buttonpl = Button(screen, text='-', width=3, height=1,
+                          command=lambda: input_number("-", equation), font="Verdana 19 bold")
+        buttonpl.place(x=315, y=370)
+
         buttonml = Button(screen, text='X', width=3, height=1,
-                          command=lambda: input_number("x", equation),font="Verdana 19 bold" )
+                          command=lambda: input_number("*", equation),font="Verdana 19 bold" )
         buttonml.place(x=315, y=210)
 
         buttondi = Button(screen, text='÷', width=3, height=1,
@@ -106,7 +126,7 @@ class Calcu:
 
         buttondel = Button(screen, text='C', width=3, height=1,
                            command=lambda:clear1(1,equation),font="Verdana 19 bold")
-        buttondel.place(x=315, y=530)
+        buttondel.place(x=315, y=450)
 
         screen.mainloop()
 
