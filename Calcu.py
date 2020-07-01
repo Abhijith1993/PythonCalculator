@@ -17,18 +17,25 @@ def input_number(number, equation, one):
     equation.set(expression)
     # here to show one digit at a time in second display
     if str(number) == ("+"):
-        print("ok")
         one_expression = one.get()
         one_expression = " "
         one.set(one_expression)
     elif str(number) == ("-"):
-        print("ok")
+        one_expression = one.get()
+        one_expression = " "
+        one.set(one_expression)
     elif str(number) == ("*"):
-        print("ok")
+        one_expression = one.get()
+        one_expression = " "
+        one.set(one_expression)
     elif str(number) == ("/"):
-        print("ok")
+        one_expression = one.get()
+        one_expression = " "
+        one.set(one_expression)
     elif str(number) == ("%"):
-        print("ok")
+        one_expression = one.get()
+        one_expression = " "
+        one.set(one_expression)
     else:
         one_expression = one_expression + str(number)
         one.set(one_expression)
