@@ -41,11 +41,14 @@ def input_number(number, equation, one):
         one.set(one_expression)
 
 
-def clear1(number, equation):
+def clear1(equation, one):
     global expression
-    length = len(expression)
+    global one_expression
     expression = expression[0: -1]
     equation.set(expression)
+
+    one_expression = one_expression[0: -1]
+    one.set(one_expression)
 
 
 def root(equation):
@@ -54,14 +57,23 @@ def root(equation):
     expression = str(root)
     equation.set(expression)
 
+def ac (equation,one):
+    global expression
+    global one_expression
+    expression = " "
+    one_expression = " "
+    one.set(one_expression)
+    equation.set(expression)
 
-def evaluate(equation):
+
+def evaluate(equation,one):
     global expression
     # trying to evaluate the expression
     try:
         result = str(eval(expression))
         # showing the result in the input field
-        equation.set(result)
+        equation.set(expression+" = ")
+        one.set(result)
         # setting expression to empty string
         expression = ""
     except ZeroDivisionError:
@@ -86,7 +98,7 @@ class Calcu:
 
         # ------------Calcu Screen---------------------
         # here i used Text Field Reason is i will plan to input date from keyboard
-        label1 = Label(screen, textvariable=equation, width=36, relief=FLAT, justify='right', bd=25,
+        label1 = Entry(screen, textvariable=equation, width=42, relief=FLAT, justify='right', bd=20,
                        font=('Arial', 11, 'bold'), bg='orange')
         label1.grid(column=0, row=0, padx=5, pady=0)
         # text1 is display full numbers you enter text2 only display current enter number
@@ -139,7 +151,7 @@ class Calcu:
         buttondot.place(x=215, y=530)
 
         buttoneq = Button(screen, text='=', width=3, height=1,
-                          command=lambda: evaluate(equation, ), font="Verdana 19 bold")
+                          command=lambda: evaluate(equation,one ), font="Verdana 19 bold")
         buttoneq.place(x=315, y=530)
 
         buttonpl = Button(screen, text='+', width=3, height=1,
@@ -162,12 +174,12 @@ class Calcu:
                           command=lambda: ("√", root(equation)), font="Verdana 19 bold")
         buttonro.place(x=115, y=210)
 
-        buttonmod = Button(screen, text='%', width=3, height=1,
-                           command=lambda: input_number("%", equation, one), font="Verdana 19 bold")
+        buttonmod = Button(screen, text='AC', width=3, height=1,
+                           command=lambda: ac(equation, one), font="Verdana 19 bold")
         buttonmod.place(x=15, y=210)
 
         buttondel = Button(screen, text='C', width=3, height=1,
-                           command=lambda: clear1(1, equation, one), font="Verdana 19 bold")
+                           command=lambda: clear1(equation, one), font="Verdana 19 bold")
         buttondel.place(x=315, y=450)
 
         screen.mainloop()
