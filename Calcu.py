@@ -51,11 +51,11 @@ def clear1(equation, one):
     one.set(one_expression)
 
 
-def root(equation):
+def root(equation, one):
     global expression
     root = int(expression) * int(expression)
     expression = str(root)
-    equation.set(expression)
+    one.set(expression)
 
 def ac (equation,one):
     global expression
@@ -171,7 +171,7 @@ class Calcu:
         buttondi.place(x=215, y=210)
 
         buttonro = Button(screen, text='x²', width=3, height=1,
-                          command=lambda: ("√", root(equation)), font="Verdana 19 bold")
+                          command=lambda: ("√", root(equation,one)), font="Verdana 19 bold")
         buttonro.place(x=115, y=210)
 
         buttonmod = Button(screen, text='AC', width=3, height=1,
